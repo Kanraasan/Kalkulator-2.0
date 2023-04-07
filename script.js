@@ -1,11 +1,11 @@
-const display1El = document.querySelector(".display-1");
-const display2El = document.querySelector(".display-2");
-const tempResultEl = document.querySelector(".temp-result");
-const numbersEl = document.querySelector(".number");
-const operationEl = document.querySelector(".operation");
-const equalEl = document.querySelector(".equal");
-const clearAllEl = document.querySelector(".all-clear");
-const clearLastEl = document.querySelector(".last-entity-clear");
+const display1El = document.querySelectorAll(".display-1");
+const display2El = document.querySelectorAll(".display-2");
+const tempResultEl = document.querySelectorAll(".temp-result");
+const numbersEl = document.querySelectorAll(".number");
+const operationEl = document.querySelectorAll(".operation");
+const equalEl = document.querySelectorAll(".equal");
+const clearAllEl = document.querySelectorAll(".all-clear");
+const clearLastEl = document.querySelectorAll(".last-entity-clear");
 
 let dis1Num = "";
 let dis2Num = "";
@@ -29,7 +29,7 @@ numbersEl.forEach((number) => {
 operationEl.forEach((operation)=>{
     operation.addEventListener("click",(e)=> {
         if (!dis2Num) return;
-        haveDot = False;
+        haveDot = false;
         const operationName = e.target.innerText;
         if(dis1Num && dis2Num && lastOperation) {
             mathOperation();
@@ -69,7 +69,8 @@ equalEl.addEventListener("click",()=>{
     haveDot = false;
     mathOperation();
     clearVar();
-    display2El.innerText = "";
+    display2El.innerText = result;
+    tempResultEl.innerText = "";
     dis2Num = result;
     dis1Num = "";
 });
